@@ -12,13 +12,15 @@ pole_botvi = [h1, h2, h3, h4]
 zanato = []
 
 
+    
+
 def games():
 
 
 
 
     while True:
-        if len(zanato) > 7:
+        if len(zanato) > 8:
             print("ничья")
             break
         if (h2[1] == x and h2[2] == x and h2[3] == x) or (h3[1] == x and h3[2] == x and h3[3] == x) or (h4[1] == x and h4[2] == x and h4[3] == x) or (h2[1] == x and h3[1] == x and h4[1] == x) or (h2[2] == x and h3[2] == x and h4[2] == x) or (h2[3] == x and h3[3] == x and h4[3] == x) or (h2[1] == x and h3[2] == x and h4[3] == x) or (h2[3] == x and h3[2] == x and h4[1] == x):
