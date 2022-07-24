@@ -1,0 +1,127 @@
+import random
+
+
+pole_ = ["1.1", "1.2", "1.3", "2.1", "2.2", "2.3", "3.1", "3.2", "3.3"]
+x = "x"
+zero = "o"
+def games():
+
+    h1 = [" ", 1, 2, 3]
+    h2 = [1, "-", "-", "-"]
+    h3 = [2, "-", "-", "-"]
+    h4 = [3, "-", "-", "-"]
+    pole_botvi = [h1, h2, h3, h4]
+    zanato = []
+
+
+
+    while True:
+        if len(zanato) > 7:
+            print("ничья")
+            break
+        if (h2[1] == x and h2[2] == x and h2[3] == x) or (h3[1] == x and h3[2] == x and h3[3] == x) or (h4[1] == x and h4[2] == x and h4[3] == x) or (h2[1] == x and h3[1] == x and h4[1] == x) or (h2[2] == x and h3[2] == x and h4[2] == x) or (h2[3] == x and h3[3] == x and h4[3] == x) or (h2[1] == x and h3[2] == x and h4[3] == x) or (h2[3] == x and h3[2] == x and h4[1] == x):
+            print("win")
+            break
+
+
+        if (h2[1] == zero and h2[2] == zero and h2[3] == zero) or (h3[1] == zero and h3[2] == zero and h3[3] == zero) or (h4[1] == zero and h4[2] == zero and h4[3] == zero) or (h2[1] == zero and h3[1] == zero and h4[1] == zero) or (h2[2] == zero and h3[2] == zero and h4[2] == zero) or (h2[3] == zero and h3[3] == zero and h4[3] == zero) or (h2[1] == zero and h3[2] == zero and h4[3] == zero) or (h2[3] == zero and h3[2] == zero and h4[1] == zero):
+            print("not win")
+            break
+
+
+        q = input("твой ход")
+
+        if q not in pole_:
+            print("куда ты жмал?")
+            continue
+        elif q in zanato:
+            print("опять?")
+            continue
+        else:
+            zanato.append(q)
+            pole_botvi[int(q[0])][int(q[2])] = x
+
+            print("походил ты")
+            print(h1, "\n", h2, '\n', h3, '\n', h4)
+
+
+
+            for i in range(100):
+                b = random.randint(1, 9)
+                print("походил бот")
+
+                if b == 1:
+                    if "1.1" in zanato:
+                        continue
+                    else:
+                        h2[1] = zero
+                        zanato.append("1.1")
+                        print(h1, "\n", h2, '\n', h3, '\n', h4)
+                        break
+                elif b == 2:
+                    if "1.2" in zanato:
+                        continue
+                    else:
+                        h2[2] = zero
+                        zanato.append("1.2")
+                        print(h1, "\n", h2, '\n', h3, '\n', h4)
+                        break
+                elif b == 3:
+                    if "1.3" in zanato:
+                        continue
+                    else:
+                        h2[3] = zero
+                        zanato.append("1.3")
+                        print(h1, "\n", h2, '\n', h3, '\n', h4)
+                        break
+                elif b == 4:
+                    if "2.1" in zanato:
+                        continue
+                    else:
+                        zanato.append("2.1")
+                        print(h1, "\n", h2, '\n', h3, '\n', h4)
+                        h3[1] = zero
+
+                        break
+                elif b == 5:
+                    if "2.2" in zanato:
+                        continue
+                    else:
+                        zanato.append("2.2")
+                        h3[2] = zero
+                        print(h1, "\n", h2, '\n', h3, '\n', h4)
+                        break
+                elif b == 6:
+                    if "2.3" in zanato:
+                        continue
+                    else:
+                        zanato.append("2.3")
+                        h3[3] = zero
+                        print(h1, "\n", h2, '\n', h3, '\n', h4)
+                        break
+                elif b == 7:
+                    if "3.1" in zanato:
+                        continue
+                    else:
+                        zanato.append("3.1")
+                        h4[1] = zero
+                        print(h1, "\n", h2, '\n', h3, '\n', h4)
+                        break
+                elif b == 8:
+                    if "3.2" in zanato:
+                        continue
+                    else:
+                        zanato.append("3.2")
+                        h4[2] = zero
+                        print(h1, "\n", h2, '\n', h3, '\n', h4)
+                        break
+                elif b == 9:
+                    if "3.3" in zanato:
+                        continue
+                    else:
+                        zanato.append("3.3")
+                        h4[3] = zero
+                        print(h1, "\n", h2, '\n', h3, '\n', h4)
+                        break
+
+games()
